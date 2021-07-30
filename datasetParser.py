@@ -24,7 +24,7 @@ def draw_segmentations(image, segmentations, filepath):
 			for polygon in medium_inner_list:
 				bbox = np.concatenate((np.min(polygon, axis=0), np.max(polygon, axis=0)))
 				roi = image[bbox[1]:bbox[3], bbox[0]:bbox[2]]
-				cv2.imwrite(filepath + "/segmentation_screenshots/segmentation_" + str(segmentation_counter), roi)
+				cv2.imwrite(filepath + "/segmentation_screenshots/segmentation_" + str(segmentation_counter) + ".png", roi)
 				segmentation_counter += 1
 				image = cv2.polylines(image, [np.array(polygon)], isClosed=False, color=color, thickness=2)
 	cv2.imshow('image', image)
