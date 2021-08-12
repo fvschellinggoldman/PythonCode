@@ -13,6 +13,7 @@ import pandas as pd
 
 import seaborn as sns
 
+
 def imagehash_approach(filepath):
     file_amt = len(os.listdir('../Dataset/webis-webseg-20-000000/000000/segmentation_screenshots'))
     li = list(itertools.combinations(range(file_amt), 2))
@@ -36,6 +37,7 @@ def imagehash_approach(filepath):
     df.to_csv("distanceMatrix.csv")
     print("Succesfully exported distance matrix")
 
+
 def skimage_approach(filepath, l):
     for i in range(len(l) - 1):
         img1 = cv2.imread(filepath + "/segmentation_" + str(l[i]) + ".png")
@@ -51,6 +53,7 @@ def main():
     sns.heatmap(df, cmap='OrRd')
     plt.savefig("heatmap.png")
     plt.show()
+
 
 if __name__ == "__main__":
     main()
